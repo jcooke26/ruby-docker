@@ -22,13 +22,13 @@ RUN exec $SHELL
 RUN git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 RUN echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 
-git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
+RUN git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
 
-exec $SHELL
+RUN exec $SHELL
 
-RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
-rbenv install $RUBYVERSION
-rbenv global $RUBYVERSION
-ruby -v
+RUN RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+RUN rbenv install $RUBYVERSION
+RUN rbenv global $RUBYVERSION
+RUN ruby -v
 
 CMD tmux new -t ruby-docker
