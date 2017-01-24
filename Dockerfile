@@ -27,6 +27,7 @@ RUN git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sud
 RUN exec $SHELL
 
 RUN RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+RUN /bin/bash -c "exec $SHELL; rbenv install $RUBYVERSION; rbenv global $RUBYVERSION"
 #RUN rbenv install $RUBYVERSION
 #RUN rbenv global $RUBYVERSION
 #RUN ruby -v
