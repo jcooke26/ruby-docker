@@ -32,4 +32,4 @@ RUN /bin/bash -c "exec $SHELL; rbenv install $RUBYVERSION; rbenv global $RUBYVER
 #RUN rbenv global $RUBYVERSION
 #RUN ruby -v
 
-CMD tmux new -t ruby-docker
+CMD tmux new -s ruby-docker
